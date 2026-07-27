@@ -1,0 +1,183 @@
+/* ── STRICT 3-COLOR SYSTEM: BLACK (#000), SKY BLUE (#38BDF8), WHITE (#FFF) ── */
+
+.team-section {
+  position: relative;
+  min-height: 100vh;
+  background-color: #000000;
+  color: #ffffff;
+  /* Reduced top padding from 100px to 40px */
+  padding: 40px 24px 60px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Changed from space-between to tighten layout */
+  align-items: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.team-header {
+  text-align: center;
+  z-index: 5;
+}
+
+.section-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #38bdf8;
+  border: 1px solid #38bdf8;
+  padding: 4px 12px;
+  border-radius: 4px;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.section-title {
+  font-size: 2.75rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #ffffff;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+/* STAGE CONTAINER */
+.wireframe-stage-container {
+  position: relative;
+  max-width: 1140px;
+  width: 100%;
+  /* Reduced top margin and removed padding that was reserved for spotlights */
+  margin-top: 20px;
+  padding-top: 20px;
+}
+
+/* 7 EQUAL COLUMN GRID */
+.columns-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  align-items: flex-end; /* Locks all columns to the bottom baseline */
+  width: 100%;
+}
+
+.team-column-slot {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  cursor: pointer;
+}
+
+/* ARCHITECTURAL COLUMN BOX */
+.column-box {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* PERFECT VERTICAL CENTERING */
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* VERTICAL WALL LINES */
+.vertical-wall {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background-color: rgba(255, 255, 255, 0.35);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  z-index: 5;
+}
+
+.wall-left {
+  left: 0;
+}
+
+.wall-right { 
+  right: 0; 
+}
+
+/* CENTERED NAME & DETAILS */
+.column-content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  padding: 12px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.member-name {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.hover-details {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, opacity 0.35s ease, margin-top 0.35s ease;
+}
+
+.member-role {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: #38bdf8;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+.member-bio {
+  font-size: 0.72rem;
+  line-height: 1.35;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+}
+
+/* ── HOVER INTERACTIONS ── */
+
+/* 1. Lift Column upward */
+.team-column-slot:hover .column-box {
+  transform: translateY(-12px);
+}
+
+/* 2. Highlight active column's lines */
+.team-column-slot:hover .vertical-wall {
+  background-color: #38bdf8;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.8);
+}
+
+/* Highlight the left wall of the NEXT column when current column is hovered */
+.team-column-slot:hover + .team-column-slot .wall-left {
+  background-color: #38bdf8;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.8);
+}
+
+/* 3. Turn name Sky Blue & reveal details */
+.team-column-slot:hover .member-name {
+  color: #38bdf8;
+}
+
+.team-column-slot:hover .hover-details {
+  max-height: 100px;
+  opacity: 1;
+  margin-top: 8px;
+}
+
+/* Responsive scaling for mobile devices */
+@media (max-width: 768px) {
+  .columns-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px 0;
+  }
+}
