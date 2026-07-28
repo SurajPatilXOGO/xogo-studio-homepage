@@ -49,6 +49,12 @@ export default function NewsSection() {
   return (
     <section id="news" className="news-section">
       <div className="news-container">
+        
+        {/* Corrected Position: Centered Header at top */}
+        <div className="section-header">
+          <span className="section-badge">Latest Updates</span>
+        </div>
+
         {/* Category Filters */}
         <div className="news-filter-bar">
           {newsCategories.map((cat) => (

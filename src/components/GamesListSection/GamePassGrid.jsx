@@ -1,6 +1,11 @@
 import React from "react";
 import "./GamePassGrid.css";
 
+// 1. Import your banner images
+import CyberConquestImg from "../../assets/game_banner_image/Cyber_Conquest.png";
+import MOBA5vs5Img from "../../assets/game_banner_image/MOBA5vs5.png";
+import UltimateDominationImg from "../../assets/game_banner_image/UltimateDomination.png";
+
 const gamesList = [
   {
     id: "aol",
@@ -11,9 +16,9 @@ const gamesList = [
     rating: "4.9 ★",
     size: "2.4 GB",
     code: "PASS-AOL-2026",
+    bannerImg: MOBA5vs5Img, // Assign imported image
     playStoreUrl: "https://play.google.com/store",
     windowsUrl: "https://store.steampowered.com",
-    // Clean SVG QR Code vector sample
     qrSvg: (
       <svg viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M0 0h9v9H0zM2 2v5h5V2zm2 2h1v1H4zM0 20h9v9H0zM2 22v5h5V22zm2 2h1v1H4zM20 0h9v9h-9zM22 2v5h5V2zm2 2h1v1H24zM11 0h2v4h-2zm4 0h4v2h-4zm-4 5h5v2h-5zm6-3h2v4h-2zm-2 5h4v2h-4zm-9 6h2v2h-2zm3 0h2v4h-2zm3 0h3v2h-3zm5 0h4v2h-4zm-8 3h2v2h-2zm5 0h2v4h-2zm3 0h3v2h-3zm-13 3h2v5h-2zm3 0h2v2h-2zm3 0h3v3h-3zm4 0h2v2h-2zm3 0h2v5h-2zm-10 3h4v2h-4zm7 0h2v2h-2z" fill="#000"/>
@@ -29,6 +34,7 @@ const gamesList = [
     rating: "4.8 ★",
     size: "4.1 GB",
     code: "PASS-UD-2026",
+    bannerImg: UltimateDominationImg, // Assign imported image
     playStoreUrl: "https://play.google.com/store",
     windowsUrl: "https://store.steampowered.com",
     qrSvg: (
@@ -46,6 +52,7 @@ const gamesList = [
     rating: "4.7 ★",
     size: "3.8 GB",
     code: "PASS-CC-2026",
+    bannerImg: CyberConquestImg, // Assign imported image
     playStoreUrl: "https://play.google.com/store",
     windowsUrl: "https://store.steampowered.com",
     qrSvg: (
@@ -60,23 +67,26 @@ export default function GamePassGrid() {
   return (
     <section id="games" className="games-pass-section">
       <div className="games-pass-container">
-        
-        {/* Wireframe Section Header */}
         <div className="section-header">
           <span className="section-badge">Access Granted</span>
           <h2 className="section-title">Our Games</h2>
         </div>
 
-        {/* 3-Card Ticket Grid */}
         <div className="cards-grid">
           {gamesList.map((game) => (
             <div key={game.id} className="game-ticket-wrapper">
               <div className="game-ticket">
                 
-                {/* Main Body */}
-                <div className="t-main">
+                {/* 2. Set the image as a background inline style */}
+                <div 
+                  className="t-main" 
+                  style={{
+                    backgroundImage: `linear-gradient(to bottom, rgba(17, 24, 39, 0.3), rgba(17, 24, 39, 0.85)), url(${game.bannerImg})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center'
+                  }}
+                >
                   <div className="t-content">
-                    
                     <div className="t-header">
                       <span className="t-genre">{game.genre}</span>
                       <span className="t-version">{game.version}</span>
@@ -85,68 +95,31 @@ export default function GamePassGrid() {
                     <h3 className="t-title">{game.title}</h3>
                     <p className="t-subtitle">{game.subtitle}</p>
 
-                    <div className="t-details">
-                      <div className="t-detail-item">
-                        <span className="t-label">Rating</span>
-                        <span className="t-value">{game.rating}</span>
-                      </div>
-                      <div className="t-detail-item">
-                        <span className="t-label">Build Size</span>
-                        <span className="t-value">{game.size}</span>
-                      </div>
-                    </div>
-
-                    {/* Download Buttons with SVG Icons */}
                     <div className="t-actions">
-                      <a 
-                        href={game.playStoreUrl} 
-                        target="_blank" 
-                        rel="noreferrer" 
-                        className="btn-platform"
-                        title="Get on Google Play"
-                      >
-                        {/* Google Play Icon */}
-                        <svg viewBox="0 0 24 24">
-                          <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z" />
-                        </svg>
+                      <a href={game.playStoreUrl} target="_blank" rel="noreferrer" className="btn-platform">
+                        <svg viewBox="0 0 24 24"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z" /></svg>
                         Play Store
                       </a>
-
-                      <a 
-                        href={game.windowsUrl} 
-                        target="_blank" 
-                        rel="noreferrer" 
-                        className="btn-platform"
-                        title="Download for Windows PC"
-                      >
-                        {/* Windows Icon */}
-                        <svg viewBox="0 0 24 24">
-                          <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4h-13.051M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-13.051-1.8" />
-                        </svg>
+                      <a href={game.windowsUrl} target="_blank" rel="noreferrer" className="btn-platform">
+                        <svg viewBox="0 0 24 24"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4h-13.051M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-13.051-1.8" /></svg>
                         Windows PC
                       </a>
                     </div>
-
                   </div>
                 </div>
 
-                {/* Perforation Divider Cutout */}
                 <div className="t-perforation">
                   <div className="t-perf-line"></div>
                 </div>
 
-                {/* Ticket Stub Footer with QR Code */}
                 <div className="t-stub">
                   <div className="t-qr-container">
-                    <div className="t-qr-box">
-                      {game.qrSvg}
-                    </div>
+                    <div className="t-qr-box">{game.qrSvg}</div>
                     <div className="t-stub-meta">
                       <span className="t-stub-code">{game.code}</span>
-                      <span className="t-stub-scan">Scan to install</span>
+                      <span className="t-stub-scan">Rating: {game.rating} | {game.size}</span>
                     </div>
                   </div>
-
                   <div className="t-status-pill">
                     <span className="t-status-dot"></span>
                     <span className="t-status-text">Live</span>
@@ -157,7 +130,6 @@ export default function GamePassGrid() {
             </div>
           ))}
         </div>
-
       </div>
     </section>
   );

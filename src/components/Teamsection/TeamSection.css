@@ -69,15 +69,6 @@
 }
 
 /* ARCHITECTURAL COLUMN BOX */
-.column-box {
-  position: relative;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center; /* PERFECT VERTICAL CENTERING */
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-}
 
 /* VERTICAL WALL LINES */
 .vertical-wall {
@@ -98,7 +89,7 @@
   right: 0; 
 }
 
-/* CENTERED NAME & DETAILS */
+/* CENTERED NAME & DETAILS
 .column-content {
   position: relative;
   z-index: 3;
@@ -110,7 +101,7 @@
   justify-content: center;
   width: 100%;
   box-sizing: border-box;
-}
+} */
 
 .member-name {
   font-size: 1.15rem;
@@ -172,6 +163,67 @@
   max-height: 100px;
   opacity: 1;
   margin-top: 8px;
+}
+
+/* Ensure the column box hides overflowing image portions */
+.column-box {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end; /* Position text towards the bottom overlay */
+  overflow: hidden; /* Clips any hard image edges */
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* IMAGE WRAPPER & BACKGROUND FIT */
+.column-image-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.column-bg-img {
+  width: 99%;
+  height: 65%;
+  object-fit: cover;
+  object-position: top center; /* Centers headshot at top of the column */
+  display: block;
+}
+
+/* BOTTOM SHADOW GRADIENT (Removes hard cut-off line) */
+.column-bottom-shadow {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 80%; /* Gradient covers the bottom half to make text fully legible */
+  background: linear-gradient(
+    to top,
+    #000000 0%,
+    rgba(0, 0, 0, 0.85) 40%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  z-index: 2;
+}
+
+/* Keep text layered above the image and shadow */
+.column-content {
+  position: relative;
+  z-index: 4;
+  text-align: center;
+  padding: 16px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* Responsive scaling for mobile devices */
