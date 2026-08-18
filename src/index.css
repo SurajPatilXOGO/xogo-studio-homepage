@@ -46,3 +46,31 @@ html, body {
     padding-inline: 24px;
   }
 }
+
+/* Remove Android tap/click highlight */
+* {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
+ 
+/* Remove focus/active visual effects */
+button,
+a,
+[role="button"],
+.card,
+.clickable {
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+ 
+button:focus,
+button:active,
+a:focus,
+a:active,
+[role="button"]:focus,
+[role="button"]:active,
+.card:focus,
+.card:active {
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
