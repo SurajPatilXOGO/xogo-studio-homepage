@@ -1,22 +1,28 @@
-import React from "react";
+import React, { useRef } from "react";
 import "./GamePassGrid.css";
 
-// 1. Import your banner images
+// Banner images
 import CyberConquestImg from "../../assets/game_banner_image/Cyber_Conquest.png";
 import MOBA5vs5Img from "../../assets/game_banner_image/MOBA5vs5.png";
 import UltimateDominationImg from "../../assets/game_banner_image/UltimateDomination.png";
 
+// Banner videos
+import AOLVideo from "../../assets/video/AOL.mp4";
+import UDVideo from "../../assets/video/UD.mp4";
+import CCVideo from "../../assets/video/CC.mp4";
+
 const gamesList = [
   {
     id: "aol",
-    title: "Arena of Legends",
+    title: "ARENA OF LEGENDS",
     genre: "5v5 MOBA",
     version: "v4.2.0",
     subtitle: "Dark mythological action strategy arena",
     rating: "4.9 ★",
     size: "2.4 GB",
     code: "PASS-AOL-2026",
-    bannerImg: MOBA5vs5Img, // Assign imported image
+    bannerImg: MOBA5vs5Img,
+    videoSrc: AOLVideo,
     playStoreUrl: "https://play.google.com/store",
     windowsUrl: "https://store.steampowered.com",
     qrSvg: (
@@ -27,14 +33,15 @@ const gamesList = [
   },
   {
     id: "ud",
-    title: "Ultimate Domination",
+    title: "ULTIMATE DOMINATION",
     genre: "Tactical Shooter",
     version: "v1.0.4",
     subtitle: "High-octane tactical cyber battleground",
     rating: "4.8 ★",
     size: "4.1 GB",
     code: "PASS-UD-2026",
-    bannerImg: UltimateDominationImg, // Assign imported image
+    bannerImg: UltimateDominationImg,
+    videoSrc: UDVideo,
     playStoreUrl: "https://play.google.com/store",
     windowsUrl: "https://store.steampowered.com",
     qrSvg: (
@@ -45,55 +52,89 @@ const gamesList = [
   },
   {
     id: "cx",
-    title: "Cyber Conquest",
+    title: "CYBER CONQUEST",
     genre: "Sci-Fi RPG",
     version: "v2.1.0",
     subtitle: "Open-world futuristic squad adventure",
     rating: "4.7 ★",
     size: "3.8 GB",
     code: "PASS-CC-2026",
-    bannerImg: CyberConquestImg, // Assign imported image
+    bannerImg: CyberConquestImg,
+    videoSrc: CCVideo,
     playStoreUrl: "https://play.google.com/store",
     windowsUrl: "https://store.steampowered.com",
     qrSvg: (
       <svg viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0 0h9v9H0zM2 2v5h5V2zm2 2h1v1H4zM0 20h9v9H0zM2 22v5h5V22zm2 2h1v1H4zM20 0h9v9h-9zM22 2v5h5V2zm2 2h1v1H24zM10 1h3v2h-3zm5 1h2v4h-2zm-4 4h3v2h-3zm5 2h4v2h-4zm-6 3h2v2h-2zm4 0h3v3h-3zm-8 2h3v2h-3zm12 0h2v4h-2zm-5 3h3v2h-3zm3 2h3v2h-3z" fill="#000"/>
+        <path d="M0 0h9v9H0zM2 2v5h5V2zm2 2h1v1H4zM0 20h9v9H0zM2 22v5h5V2zm2 2h1v1H4zM20 0h9v9h-9zM22 2v5h5V2zm2 2h1v1H24zM10 1h3v2h-3zm5 1h2v4h-2zm-4 4h3v2h-3zm5 2h4v2h-4zm-6 3h2v2h-2zm4 0h3v3h-3zm-8 2h3v2h-3zm12 0h2v4h-2zm-5 3h3v2h-3zm3 2h3v2h-3z" fill="#000"/>
       </svg>
     )
   }
 ];
 
 export default function GamePassGrid() {
+  const videoRefs = useRef({});
+
+  const handleMouseEnter = (id) => {
+    const vid = videoRefs.current[id];
+    if (vid) {
+      vid.currentTime = 0;
+      vid.play().catch(() => {});
+    }
+  };
+
+  const handleMouseLeave = (id) => {
+    const vid = videoRefs.current[id];
+    if (vid) {
+      vid.pause();
+      vid.currentTime = 0;
+    }
+  };
+
   return (
     <section id="games" className="games-pass-section">
       <div className="games-pass-container">
-        <div className="section-header">
-          <span className="section-badge">Access Granted</span>
-          <h2 className="section-title">Our Games</h2>
+        <div className="games-section-header">
+          <h2 className="games-section-title">ACCESS GRANTED</h2>
         </div>
 
         <div className="cards-grid">
           {gamesList.map((game) => (
-            <div key={game.id} className="game-ticket-wrapper">
+            <div
+              key={game.id}
+              className="game-ticket-wrapper"
+              onMouseEnter={() => handleMouseEnter(game.id)}
+              onMouseLeave={() => handleMouseLeave(game.id)}
+            >
+              <div className="card-top-header">
+                <h3 className="t-title-external">{game.title}</h3>
+                <p className="t-subtitle-external">{game.subtitle}</p>
+              </div>
+
               <div className="game-ticket">
-                
-                {/* 2. Set the image as a background inline style */}
-                <div 
-                  className="t-main" 
+                <div
+                  className="t-main"
                   style={{
-                    backgroundImage: `linear-gradient(to bottom, rgba(17, 24, 39, 0.3), rgba(17, 24, 39, 0.85)), url(${game.bannerImg})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center'
+                    backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.85)), url(${game.bannerImg})`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center"
                   }}
                 >
+                  <video
+                    ref={(el) => (videoRefs.current[game.id] = el)}
+                    className="t-bg-video"
+                    src={game.videoSrc}
+                    muted
+                    loop
+                    playsInline
+                    preload="metadata"
+                  />
+                  <div className="t-video-overlay" />
+
                   <div className="t-content">
                     <div className="t-header">
                       <span className="t-genre">{game.genre}</span>
                       <span className="t-version">{game.version}</span>
                     </div>
-
-                    <h3 className="t-title">{game.title}</h3>
-                    <p className="t-subtitle">{game.subtitle}</p>
 
                     <div className="t-actions">
                       <a href={game.playStoreUrl} target="_blank" rel="noreferrer" className="btn-platform">

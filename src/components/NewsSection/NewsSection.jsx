@@ -51,8 +51,8 @@ export default function NewsSection() {
       <div className="news-container">
         
         {/* Corrected Position: Centered Header at top */}
-        <div className="section-header">
-          <span className="section-badge">Latest Updates</span>
+        <div className="news-section-header">
+          <span className="news-section-badge">Latest Updates</span>
         </div>
 
         {/* Category Filters */}

@@ -65,8 +65,8 @@ export default function TeamSection() {
   return (
     <section id="team" className="team-section">
       <div className="team-header">
-        <span className="section-badge">STUDIO LEADERSHIP</span>
-        <h2 className="section-title">OUR TEAM</h2>
+        <span className="team-section-badge">STUDIO LEADERSHIP</span>
+        <h2 className="team-section-title">OUR TEAM</h2>
       </div>
 
       <div className="wireframe-stage-container">

@@ -7,6 +7,8 @@ import NewsSection from './components/NewsSection/NewsSection.jsx'
 import ChampionsSection from './components/ChampionsSection/ChampionsSection.jsx'
 import Footer from './components/Footer/footer.jsx'
 import GamePassGrid from './components/GamesListSection/GamePassGrid.jsx'
+import OurInsights from './components/OurInsights/OurInsights.jsx'
+import WhatsAppChatOverlay from './components/WhatsappChatbot/WhatsAppChatOverlay.jsx'
 
 function App() {
   return (
@@ -15,11 +17,12 @@ function App() {
       <HeroSection />
       {/* <GamesListSection /> */}
       <GamePassGrid />
-      {/* <ChampionsSection /> */}
-      <NewsSection />
-      <TeamSection />
-      
+      {/* <ChampionsSection /> */}  
+      {/* <NewsSection /> */}
+      {/* <TeamSection /> */}
+      <OurInsights />
       <Footer />
+      <WhatsAppChatOverlay />
     </>
   )
 }

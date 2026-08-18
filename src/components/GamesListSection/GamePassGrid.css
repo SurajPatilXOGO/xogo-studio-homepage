@@ -1,481 +1,369 @@
-/* ── COLOR SYSTEM & CORE VARS ── */
-.games-pass-section {
-  --g-bg: #030712;
-  --g-card-bg: #000000; /* Flat black card background */
-  --g-stub-bg: #09090b; /* Slightly darker stub background */
-  --g-accent: #38bdf8;
-  --g-accent-glow: rgba(56, 189, 248, 0.4);
-  --g-text-main: #f8fafc;
-  --g-text-muted: #94a3b8;
-  
-  min-height: 100vh;
-  background-color: #0000;
-  color: var(--g-text-main);
-  padding: 80px 20px;
-  font-family: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.games-pass-container {
-  max-width: 1280px;
-  width: 100%;
-  margin: 0 auto;
-}
-
-/* Header Section */
-.section-header {
-  text-align: center;
-  margin-bottom: 60px;
-}
-
-.section-badge {
-  display: inline-block;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.25em;
-  color: var(--g-accent);
-  border: 1px solid var(--g-accent);
-  padding: 4px 12px;
-  border-radius: 99em;
-  text-transform: uppercase;
-  margin-bottom: 16px;
-  box-shadow: 0 0 12px var(--g-accent-glow);
-}
-
-.section-title {
-  font-size: 3rem;
-  font-weight: 900;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  margin: 0;
-  background: linear-gradient(135deg, #ffffff 0%, var(--g-accent) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* 3-Card Grid (Removed 3D perspective) */
-.cards-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
-}
-
-/* Ticket Card Structure */
-.game-ticket-wrapper {
-  display: flex;
-  justify-content: center;
-}
-
-.game-ticket {
-  position: relative;
-  width: 100%;
-  max-width: 380px;
-  /* Removed transform-style and filter transitions */
-}
-
-/* REMOVED: .game-ticket-wrapper:hover .game-ticket 3D tilt effects */
-
-/* REMOVED: .game-ticket::after gloss overlay */
-
-/* Main Top Section (Flat Black Background) */
-.t-main {
-  padding: 28px 24px 36px 24px;
-  position: relative;
-  overflow: hidden;
-  background: 
-    radial-gradient(circle at bottom left, transparent 1.2em, var(--g-card-bg) 1.25em),
-    radial-gradient(circle at bottom right, transparent 1.2em, var(--g-card-bg) 1.25em);
-  background-size: 51% 100%;
-  background-position: bottom left, bottom right;
-  background-repeat: no-repeat;
-  border-top-left-radius: 1.2em;
-  border-top-right-radius: 1.2em;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-bottom: none;
-}
-
-/* REMOVED: .t-main::after grid pattern and animation */
-
-.t-content {
-  position: relative;
-  z-index: 1;
-}
-
-/* Card Header */
-.t-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.t-genre {
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--g-accent);
-  border: 1px solid var(--g-accent);
-  padding: 3px 8px;
-  border-radius: 4px;
-}
-
-.t-version {
-  font-size: 0.7rem;
-  color: var(--g-text-muted);
-  font-family: monospace;
-}
-
-.t-title {
-  font-size: 1.65rem;
-  font-weight: 900;
-  line-height: 1.15;
-  margin: 0 0 6px 0;
-  text-transform: uppercase;
-  color: #fff;
-}
-
-.t-subtitle {
-  color: var(--g-text-muted);
-  font-size: 0.82rem;
-  margin-bottom: 24px;
-  min-height: 2.5em;
-}
-
-/* Details Meta Box */
-.t-details {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  margin-bottom: 24px;
-  background: #09090b;
-  padding: 12px;
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.t-detail-item {
-  display: flex;
-  flex-direction: column;
-}
-
-.t-label {
-  font-size: 0.6rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--g-text-muted);
-}
-
-.t-value {
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: var(--g-text-main);
-  margin-top: 2px;
-}
-
-/* Action Buttons */
-.t-actions {
-  display: flex;
-  gap: 10px;
-}
-
-.btn-platform {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 10px 12px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 8px;
-  color: #fff;
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-decoration: none;
-  transition: all 0.2s ease;
-  cursor: pointer;
-}
-
-.btn-platform:hover {
-  background: var(--g-accent);
-  color: #000;
-  border-color: var(--g-accent);
-  box-shadow: 0 0 15px var(--g-accent-glow);
-}
-
-.btn-platform svg {
-  width: 16px;
-  height: 16px;
-  fill: currentColor;
-}
-
-/* Perforation Line */
-.t-perforation {
-  display: flex;
-  justify-content: space-between;
-  height: 12px;
-  align-items: center;
-  position: relative;
-  z-index: 2;
-  margin-top: -6px;
-}
-
-.t-perf-line {
-  flex-grow: 1;
-  height: 0;
-  border-top: 2px dashed rgba(255, 255, 255, 0.2);
-  margin: 0 1.2em;
-}
-
-/* Ticket Stub Section */
-.t-stub {
-  padding: 20px 24px;
-  background: 
-    radial-gradient(circle at top left, transparent 1.2em, var(--g-stub-bg) 1.25em),
-    radial-gradient(circle at top right, transparent 1.2em, var(--g-stub-bg) 1.25em);
-  background-size: 51% 100%;
-  background-position: top left, top right;
-  background-repeat: no-repeat;
-  border-bottom-left-radius: 1.2em;
-  border-bottom-right-radius: 1.2em;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-top: none;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
-}
-
-.t-qr-container {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.t-qr-box {
-  width: 52px;
-  height: 52px;
-  background: #ffffff;
-  padding: 4px;
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.t-qr-box svg {
-  width: 100%;
-  height: 100%;
-}
-
-.t-stub-meta {
-  display: flex;
-  flex-direction: column;
-}
-
-.t-stub-code {
-  font-family: monospace;
-  font-size: 0.65rem;
-  color: var(--g-accent);
-  letter-spacing: 0.1em;
-}
-
-.t-stub-scan {
-  font-size: 0.6rem;
-  color: var(--g-text-muted);
-  text-transform: uppercase;
-  margin-top: 2px;
-}
-
-.t-status-pill {
-  text-align: right;
-}
-
-.t-status-dot {
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  background-color: var(--g-accent);
-  border-radius: 50%;
-  margin-right: 6px;
-  box-shadow: 0 0 8px var(--g-accent);
-}
-
-.t-status-text {
-  font-size: 0.7rem;
-  font-weight: 700;
-  color: var(--g-text-main);
-  text-transform: uppercase;
-}
-
-/* Position video absolute to cover card area */
-.t-card-video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Keeps video perfectly scaled and filled */
-  opacity: 3; /* Very low opacity for subtle motion background */
-  transform: scale(1.25); /* Slight scale to prevent edge bleed */
-  z-index: 0;
-  pointer-events: none;
-}
-
-/* Dark gradient overlay to guarantee text readability */
-.t-card-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(17, 24, 39, 0.75) 0%,
-    rgba(17, 24, 39, 0.92) 100%
-  );
-  z-index: 0;
-  pointer-events: none;
-}
-
-/* External Title Section Above Card */
-.card-top-header {
-  text-align: center;
-  margin-bottom: 14px;
-}
-
-.t-title-external {
-  font-size: 1.5rem;
-  font-weight: 900;
-  line-height: 1.15;
-  margin: 0 0 4px 0;
-  text-transform: uppercase;
-  color: #fff;
-  letter-spacing: 0.02em;
-}
-
-.t-subtitle-external {
-  color: var(--g-text-muted);
-  font-size: 0.8rem;
-  margin: 0;
-}
-
-/* Video Frame Adjustments */
-.t-main {
-  height: 220px; /* Dedicated video viewport height */
-  padding: 16px;
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  background: 
-    radial-gradient(circle at bottom left, transparent 1.2em, var(--g-card-bg) 1.25em),
-    radial-gradient(circle at bottom right, transparent 1.2em, var(--g-card-bg) 1.25em);
-  background-size: 51% 100%;
-  background-position: bottom left, bottom right;
-  background-repeat: no-repeat;
-  border-top-left-radius: 1.2em;
-  border-top-right-radius: 1.2em;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-bottom: none;
-}
-
-.t-bg-video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 0;
-  pointer-events: none;
-  opacity: 0.85;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.t-video-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(3, 7, 18, 0.6) 0%,
-    rgba(3, 7, 18, 0.2) 50%,
-    rgba(3, 7, 18, 0.8) 100%
-  );
-  z-index: 1;
-  pointer-events: none;
-}
-
-.game-ticket-wrapper:hover .t-bg-video {
-  opacity: 1;
-  transform: scale(1.05);
-}
-
-.t-content {
-  position: relative;
-  z-index: 2;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-/* Metrics shifted beside QR code */
-.t-inline-metrics {
-  display: flex;
-  gap: 12px;
-  background: rgba(0, 0, 0, 0.4);
-  padding: 6px 10px;
-  border-radius: 6px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.metric-pill {
-  display: flex;
-  flex-direction: column;
-}
-
-.metric-pill .t-label {
-  font-size: 0.55rem;
-  text-transform: uppercase;
-  color: var(--g-text-muted);
-}
-
-.metric-pill .t-value {
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: var(--g-text-main);
-}
-
-.t-main {
-  min-height: 260px; /* Give space for the banner artwork */
-  padding: 24px;
-  position: relative;
-  overflow: hidden;
-  border-top-left-radius: 1.2em;
-  border-top-right-radius: 1.2em;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-bottom: none;
-  /* Allow dark gradient overlay over image */
-  background-repeat: no-repeat;
-}
-.btn-platform {
-  background: rgba(0, 0, 0, 0.65);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-}
-
-/* Responsive Breakdown */
-@media (max-width: 1024px) {
-  .cards-grid {
-    grid-template-columns: repeat(2, 1fr);
+  /* ── COLOR SYSTEM & CORE VARS ── */
+  .games-pass-section {
+    --g-bg: #030712;
+    --g-card-bg: #000000;
+    --g-stub-bg: #000000; /* Flat black background */
+    --g-accent: #368ccd; 
+    --g-accent-glow: rgba(54, 140, 205, 0.4);
+    --g-text-main: #f8fafc;
+    --g-text-muted: #94a3b8;
+    
+    min-height: 100vh;
+    background-color: #000000;
+    color: var(--g-text-main);
+    padding: 80px 20px;
+    font-family: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
-}
 
-@media (max-width: 680px) {
-  .cards-grid {
-    grid-template-columns: 1fr;
+  .games-pass-container {
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
   }
-}
+
+  /* Header Section */
+  .games-section-header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  /* Section Title */
+  .games-section-title {
+    font-size: 2.25rem;
+    font-weight: 900;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #368ccd;
+    text-shadow: 0 0 10px rgba(54, 140, 205, 0.7);
+    margin: 0;
+    border: none;
+    background: transparent;
+    padding: 0;
+  }
+
+  /* Grid Layout */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+
+  /* Ticket Card Structure */
+  .game-ticket-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .game-ticket {
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+  }
+
+  /* Main Top Section */
+  .t-main {
+    min-height: 300px;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-top-left-radius: 1.5em;
+    border-top-right-radius: 1.5em;
+    border: 1px solid rgba(54, 140, 205, 0.2);
+    border-bottom: none;
+  }
+
+  .t-content {
+    position: absolute;
+    inset: 0;
+    padding: 24px;
+    box-sizing: border-box;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  /* Card Header */
+  .t-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  /* 1. Genre Badge - Pill/Capsule Rounded Style */
+  .t-genre {
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    background-color: #368ccd;
+    color: #000000;
+    padding: 6px 16px;
+    border-radius: 9999px; /* Complete pill/capsule rounding */
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .t-version {
+    font-size: 0.7rem;
+    color: var(--g-accent);
+    font-family: monospace;
+  }
+
+  /* External Title Section Above Card */
+  .card-top-header {
+    text-align: center;
+    margin-bottom: 18px;
+    max-width: 420px;
+    width: 100%;
+  }
+
+  .t-title-external {
+    font-size: 1.6rem;
+    font-weight: 900;
+    line-height: 1.15;
+    margin: 0 0 6px 0;
+    text-transform: uppercase;
+    color: #fff;
+    letter-spacing: 0.02em;
+  }
+
+  .t-subtitle-external {
+    color: var(--g-text-muted);
+    font-size: 0.85rem;
+    margin: 0;
+  }
+
+  /* Action Buttons */
+  .t-actions {
+    display: flex;
+    gap: 10px;
+  }
+
+  .btn-platform {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 12px;
+    background: #000000; /* Flat black background */
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+
+  .btn-platform:hover {
+    background: #368ccd;
+    color: #000;
+    border-color: #368ccd;
+    box-shadow: 0 0 15px rgba(54, 140, 205, 0.6);
+  }
+
+  .btn-platform svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+  }
+
+  /* Perforation Line */
+  .t-perforation {
+    display: flex;
+    justify-content: space-between;
+    height: 12px;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    margin-top: -6px;
+  }
+
+  .t-perf-line {
+    flex-grow: 1;
+    height: 0;
+    border-top: 2px dashed rgba(54, 140, 205, 0.3);
+    margin: 0 1.2em;
+  }
+
+  /* Ticket Stub Section - 2. Flat Black Background */
+  .t-stub {
+    padding: 20px 24px;
+    background-color: #000000; /* Flat black background without gradients or shadows */
+    background-image: 
+      radial-gradient(circle at top left, transparent 1.2em, #000000 1.25em),
+      radial-gradient(circle at top right, transparent 1.2em, #000000 1.25em);
+    background-size: 51% 100%;
+    background-position: top left, top right;
+    background-repeat: no-repeat;
+    border-bottom-left-radius: 1.5em;
+    border-bottom-right-radius: 1.5em;
+    border: 1px solid rgba(54, 140, 205, 0.2);
+    border-top: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+  }
+
+  .t-qr-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .t-qr-box {
+    width: 48px;
+    height: 48px;
+    background: #ffffff;
+    padding: 4px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .t-qr-box svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .t-stub-meta {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .t-stub-code {
+    font-family: monospace;
+    font-size: 0.65rem;
+    color: #368ccd;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+  }
+
+  .t-stub-scan {
+    font-size: 0.6rem;
+    color: var(--g-text-muted);
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+
+  .t-status-pill {
+    text-align: right;
+    display: flex;
+    align-items: center;
+  }
+
+  .t-status-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: #368ccd;
+    border-radius: 50%;
+    margin-right: 6px;
+    box-shadow: 0 0 8px #368ccd;
+  }
+
+  .t-status-text {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--g-text-main);
+    text-transform: uppercase;
+  }
+
+  /* Hover Video Behavior */
+  .t-bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0;
+    transform: scale(1);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+
+  .game-ticket-wrapper:hover .t-bg-video {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+
+  .t-video-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  /* Mobile Responsiveness Adjustments */
+  @media (max-width: 1024px) {
+    .cards-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .games-pass-section {
+      padding: 50px 16px;
+    }
+
+    .games-section-header {
+      margin-bottom: 36px;
+    }
+
+    .games-section-title {
+      font-size: 1.75rem;
+      letter-spacing: 0.1em;
+    }
+
+    .cards-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .t-main {
+      min-height: 260px;
+    }
+
+    .t-title-external {
+      font-size: 1.35rem;
+    }
+
+    .t-subtitle-external {
+      font-size: 0.8rem;
+    }
+
+    .t-actions {
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .btn-platform {
+      width: 100%;
+      padding: 10px 0;
+    }
+
+    .t-stub {
+      padding: 16px 18px;
+    }
+  }

@@ -9,13 +9,13 @@ export default function HeroSection() {
         autoPlay
         muted
         loop
-        playsInline
+        playsInline /* Prevents iOS auto-fullscreen */
       />
       <div className="hero-overlay" />
-      {/* <div className="section-container">
-        <h1 className="section-title">Welcome to XOGO</h1>
-        <p className="section-subtitle">We craft immersive gaming experiences</p>
-      </div> */}
+      <div className="hero-content">
+        {/* Un-comment if content overlay is needed */}
+        {/* <h1 className="hero-title">WELCOME TO XOGO</h1> */}
+      </div>
     </section>
   );
 }

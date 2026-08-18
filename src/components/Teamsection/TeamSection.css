@@ -1,4 +1,4 @@
-/* ── STRICT 3-COLOR SYSTEM: BLACK (#000), SKY BLUE (#38BDF8), WHITE (#FFF) ── */
+/* ── STRICT 3-COLOR SYSTEM: BLACK (#000), BRAND BLUE (#3592D8), WHITE (#FFF) ── */
 
 .team-section {
   position: relative;
@@ -19,20 +19,20 @@
   z-index: 5;
 }
 
-.section-badge {
+.team-section-badge {
   display: inline-block;
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 2px;
-  color: #38bdf8;
-  border: 1px solid #38bdf8;
+  color: #3592d8;
+  border: 1px solid #3592d8;
   padding: 4px 12px;
   border-radius: 4px;
   margin-bottom: 12px;
   text-transform: uppercase;
 }
 
-.section-title {
+.team-section-title {
   font-size: 2.75rem;
   font-weight: 800;
   letter-spacing: 2px;
@@ -123,7 +123,7 @@
   display: block;
   font-size: 0.65rem;
   font-weight: 800;
-  color: #38bdf8;
+  color: #3592d8;
   letter-spacing: 1px;
   margin-bottom: 4px;
 }
@@ -144,19 +144,19 @@
 
 /* 2. Highlight active column's lines */
 .team-column-slot:hover .vertical-wall {
-  background-color: #38bdf8;
-  box-shadow: 0 0 10px rgba(56, 189, 248, 0.8);
+  background-color: #3592d8;
+  box-shadow: 0 0 10px rgba(53, 146, 216, 0.8);
 }
 
 /* Highlight the left wall of the NEXT column when current column is hovered */
 .team-column-slot:hover + .team-column-slot .wall-left {
-  background-color: #38bdf8;
-  box-shadow: 0 0 10px rgba(56, 189, 248, 0.8);
+  background-color: #3592d8;
+  box-shadow: 0 0 10px rgba(53, 146, 216, 0.8);
 }
 
 /* 3. Turn name Sky Blue & reveal details */
 .team-column-slot:hover .member-name {
-  color: #38bdf8;
+  color: #3592d8;
 }
 
 .team-column-slot:hover .hover-details {
@@ -165,16 +165,17 @@
   margin-top: 8px;
 }
 
-/* Ensure the column box hides overflowing image portions */
+/* 1. Ensure the column box relative container stretches correctly */
 .column-box {
   position: relative;
   width: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: flex-end; /* Keep content anchored to the bottom */
   align-items: center;
-  justify-content: flex-end; /* Position text towards the bottom overlay */
-  overflow: hidden; /* Clips any hard image edges */
+  overflow: hidden; /* Clips image edges within column walls */
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
 }
 
 /* IMAGE WRAPPER & BACKGROUND FIT */
@@ -189,41 +190,63 @@
 }
 
 .column-bg-img {
-  width: 99%;
-  height: 65%;
-  object-fit: cover;
-  object-position: top center; /* Centers headshot at top of the column */
+  width: 100%;
+  height: 100%;
+  /* Cover ensures perfect proportional fill regardless of column height */
+  object-fit: cover; 
+  /* Focus alignment at top center so faces are never cropped out */
+  object-position: top center; 
   display: block;
 }
 
-/* BOTTOM SHADOW GRADIENT (Removes hard cut-off line) */
+/* 3. Refine Bottom Gradient Overlay */
 .column-bottom-shadow {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 80%; /* Gradient covers the bottom half to make text fully legible */
+  height: 75%; /* Smooth blend over lower body and behind text */
   background: linear-gradient(
     to top,
     #000000 0%,
-    rgba(0, 0, 0, 0.85) 40%,
+    rgba(0, 0, 0, 0.85) 50%,
     rgba(0, 0, 0, 0) 100%
   );
   z-index: 2;
 }
 
-/* Keep text layered above the image and shadow */
+/* 4. Standardize Column Content & Padding Across All Columns */
 .column-content {
   position: relative;
   z-index: 4;
   text-align: center;
-  padding: 16px 8px;
+  /* Balanced side/bottom spacing matching Akbar's card */
+  padding: 12px 6px; 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
   width: 100%;
   box-sizing: border-box;
+}
+
+/* 5. Clean up Wall Alignments */
+.vertical-wall {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background-color: rgba(255, 255, 255, 0.25);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  z-index: 5;
+}
+
+.wall-left {
+  left: 0;
+}
+
+.wall-right { 
+  right: 0; 
 }
 
 /* Responsive scaling for mobile devices */

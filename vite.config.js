@@ -7,6 +7,7 @@ export default defineConfig({
   server: {
     port: 4255,
     strictPort: true,
+    allowedHosts: ["broiler-retiree-zigzagged.ngrok-free.dev"],
   },
   preview: {
     port: 4255,
