@@ -1,15 +1,16 @@
 import "./HeroSection.css";
+import AOLHero from "../../assets/AOL_Hero.mp4";
 
 export default function HeroSection() {
   return (
     <section id="hero" className="hero-section">
       <video
         className="hero-video"
-        src="/src/assets/AOL_Hero.mp4"
+        src={AOLHero}
         autoPlay
         muted
         loop
-        playsInline /* Prevents iOS auto-fullscreen */
+        playsInline
       />
       <div className="hero-overlay" />
       <div className="hero-content">

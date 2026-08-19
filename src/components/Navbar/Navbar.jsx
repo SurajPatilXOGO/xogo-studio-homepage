@@ -1,14 +1,12 @@
 import { useState, useEffect } from "react";
 import "./Navbar.css";
+import logo from "../../assets/logo.png";
 
 const links = [
   { title: "Home", href: "#hero" },
   { title: "Games", href: "#games" },
-  // { title: "Team", href: "#team" },
-  // { title: "News", href: "#news" },
-  {title: "Insights", href: "#insights" },
+  { title: "Insights", href: "#insights" },
   { title: "Contact", href: "#footer" },
-
 ];
 
 export default function Navbar() {
@@ -17,11 +15,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 80) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 80);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -33,12 +27,11 @@ export default function Navbar() {
   return (
     <header className={`navbar ${isScrolled ? "navbar--scrolled" : ""}`}>
       <div className="navbar__logo">
-        <img src="/src/assets/logo.png" alt="XOGO" height={40} />
+        <img src={logo} alt="XOGO" height={40} />
       </div>
 
-      {/* Hamburger Toggle Button */}
-      <button 
-        className={`navbar__hamburger ${isOpen ? "is-active" : ""}`} 
+      <button
+        className={`navbar__hamburger ${isOpen ? "is-active" : ""}`}
         onClick={toggleMenu}
         aria-label="Toggle navigation menu"
       >
@@ -47,7 +40,6 @@ export default function Navbar() {
         <span className="bar"></span>
       </button>
 
-      {/* Responsive Links Container */}
       <nav className={`navbar__links ${isOpen ? "navbar__links--open" : ""}`}>
         {links.map((item) => (
           <a key={item.title} href={item.href} onClick={() => setIsOpen(false)}>
