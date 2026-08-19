@@ -1,4 +1,4 @@
-/* ── STRICT 3-COLOR SYSTEM: BLACK (#000), BRAND BLUE (#368ccd), WHITE (#FFF) ── */
+/* ── STRICT 3-COLOR SYSTEM: BLACK (#000), BRAND BLUE (#1F7BF5), WHITE (#FFF) ── */
 
 .footer-section {
   background-color: #000000;
@@ -38,7 +38,7 @@
 }
 
 .logo-accent {
-  color: #368ccd;
+  color: #1F7BF5;
 }
 
 .footer-tagline {
@@ -76,7 +76,7 @@
 }
 
 .status-dot {
-  color: #368ccd;
+  color: #1F7BF5;
   font-size: 0.7rem;
 }
 
@@ -92,7 +92,7 @@
   font-size: 0.75rem;
   font-weight: 800;
   letter-spacing: 1.5px;
-  color: #368ccd;
+  color: #1F7BF5;
   text-transform: uppercase;
   margin: 0 0 16px 0;
 }
@@ -116,7 +116,7 @@
 }
 
 .footer-links a:hover {
-  color: #368ccd;
+  color: #1F7BF5;
 }
 
 /* Newsletter Section */
@@ -148,11 +148,11 @@
 }
 
 .newsletter-input:focus {
-  border-color: #368ccd;
+  border-color: #1F7BF5;
 }
 
 .newsletter-btn {
-  background: #368ccd;
+  background: #1F7BF5;
   color: #000000;
   border: none;
   border-radius: 6px;
@@ -170,9 +170,9 @@
 
 .subscribe-success {
   font-size: 0.8rem;
-  color: #368ccd;
+  color: #1F7BF5;
   background: rgba(54, 140, 205, 0.08);
-  border: 1px solid #368ccd;
+  border: 1px solid #1F7BF5;
   padding: 8px 12px;
   border-radius: 6px;
   margin-bottom: 12px;
@@ -206,7 +206,7 @@
 }
 
 .social-btn:hover {
-  border-color: #368ccd;
+  border-color: #1F7BF5;
   box-shadow: 0 0 10px rgba(54, 140, 205, 0.4);
   transform: translateY(-2px);
 }
@@ -236,7 +236,7 @@
 }
 
 .footer-legal a:hover {
-  color: #368ccd;
+  color: #1F7BF5;
 }
 
 .divider {
@@ -252,6 +252,7 @@
   }
 }
 
+/* ── CENTER ALIGNED MOBILE RESPONSIVENESS ── */
 @media (max-width: 600px) {
   .footer-section {
     padding: 40px 16px 24px 16px;
@@ -259,20 +260,56 @@
 
   .footer-grid {
     grid-template-columns: 1fr;
-    gap: 24px;
+    gap: 32px;
+    text-align: center;
+  }
+
+  .footer-brand-col,
+  .footer-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-tagline {
+    max-width: 100%;
+  }
+
+  .social-row {
+    justify-content: center;
   }
 
   .newsletter-form {
     flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .newsletter-input {
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
   }
 
   .newsletter-btn {
     padding: 10px;
     width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .system-status {
+    margin: 12px auto 0 auto;
   }
 
   .footer-bottom-bar {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-legal {
+    justify-content: center;
   }
 }

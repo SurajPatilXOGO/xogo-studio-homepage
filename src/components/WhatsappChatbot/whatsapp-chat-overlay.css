@@ -182,7 +182,7 @@
   border: 1px solid rgba(54, 140, 205, 0.52);
   border-radius: 50%;
   background: #000000;
-  color: #368ccd;
+  color: #1F7BF5;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -192,7 +192,7 @@
 }
 
 .whatsapp-chat-fab:hover {
-  border-color: #368ccd;
+  border-color: #1F7BF5;
   background: rgba(54, 140, 205, 0.13);
   box-shadow: 0 16px 42px rgba(0, 0, 0, 0.76), 0 0 24px rgba(54, 140, 205, 0.52);
   transform: translateY(-2px) scale(1.02);

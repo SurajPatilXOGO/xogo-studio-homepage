@@ -1,6 +1,6 @@
 /* ── COLOR SYSTEM & LAYOUT ROOT ── */
 .insights-section {
-  --g-accent: #368ccd;
+  --g-accent: #1F7BF5;
   --g-accent-glow: rgba(54, 140, 205, 0.6);
   --g-bg: #000000;
   --g-card-bg: #000000; /* Updated card background to flat pure black */
@@ -41,8 +41,8 @@
   font-size: 0.75rem;
   font-weight: 800;
   letter-spacing: 0.2em;
-  color: #368ccd;
-  border: 1px solid #368ccd;
+  color: #1F7BF5;
+  border: 1px solid #1F7BF5;
   padding: 6px 16px;
   border-radius: 9999px;
   margin-bottom: 12px;
@@ -57,7 +57,7 @@
   font-weight: 900;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #368ccd;
+  color: #1F7BF5;
   text-shadow: 0 0 14px var(--g-accent-glow);
   margin: 0;
   text-align: center;
@@ -66,7 +66,7 @@
 .title-underline {
   width: 80px;
   height: 3px;
-  background-color: #368ccd;
+  background-color: #1F7BF5;
   margin-top: 12px;
   box-shadow: 0 0 10px var(--g-accent-glow);
   border-radius: 2px;
@@ -93,7 +93,7 @@
 }
 
 .featured-card-hud:hover {
-  border-color: #368ccd;
+  border-color: #1F7BF5;
   box-shadow: 0 0 20px rgba(54, 140, 205, 0.25);
 }
 
@@ -131,7 +131,7 @@
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background: #368ccd;
+  background: #1F7BF5;
   border: none;
   color: #000;
   display: flex;
@@ -154,23 +154,26 @@
 }
 
 /* Featured Media HUD Tag - Capsule Style */
+/* Featured Media HUD Tag - Capsule Style */
 .hud-tag {
   position: absolute;
   top: 12px;
   left: 12px;
-  background: rgba(0, 0, 0, 0.85);
-  border: 1px solid #368ccd;
-  color: #368ccd;
+
+  background: #1F7BF5;
+  border: 1px solid #1F7BF5;
+  color: #000000;
+
   font-size: 0.65rem;
   font-weight: 800;
   padding: 6px 14px;
   border-radius: 9999px;
   letter-spacing: 0.1em;
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
 }
-
 .featured-title {
   font-size: 1.35rem;
   font-weight: 800;
@@ -208,7 +211,7 @@
 
 .news-hud-card:hover,
 .news-hud-card.active {
-  border-color: #368ccd;
+  border-color: #1F7BF5;
   background: #000000; /* Kept flat black on hover/active state */
   box-shadow: 0 0 15px rgba(54, 140, 205, 0.2);
   transform: translateX(6px);
@@ -224,7 +227,7 @@
 .news-category-badge {
   font-size: 0.65rem;
   font-weight: 800;
-  background: #368ccd;
+  background: #1F7BF5;
   color: #000000;
   padding: 5px 14px;
   border-radius: 9999px;
@@ -263,7 +266,7 @@
 .read-more-text {
   font-size: 0.7rem;
   font-weight: 800;
-  color: #368ccd;
+  color: #1F7BF5;
   letter-spacing: 0.1em;
 }
 
@@ -275,8 +278,8 @@
 .btn-view-all {
   display: inline-block;
   background: transparent;
-  color: #368ccd;
-  border: 2px solid #368ccd;
+  color: #1F7BF5;
+  border: 2px solid #1F7BF5;
   font-weight: 800;
   font-size: 0.8rem;
   letter-spacing: 0.12em;
@@ -289,7 +292,7 @@
 }
 
 .btn-view-all:hover {
-  background: #368ccd;
+  background: #1F7BF5;
   color: #000000;
   box-shadow: 0 0 20px rgba(54, 140, 205, 0.8);
 }
@@ -343,7 +346,7 @@
 .collab-highlight {
   font-size: 0.9rem;
   font-weight: 800;
-  color: #368ccd;
+  color: #1F7BF5;
   letter-spacing: 0.05em;
 }
 
@@ -366,8 +369,8 @@
   font-size: 0.8rem;
   font-weight: 900;
   letter-spacing: 0.1em;
-  color: #368ccd;
-  border-bottom: 2px solid #368ccd;
+  color: #1F7BF5;
+  border-bottom: 2px solid #1F7BF5;
   padding-bottom: 2px;
 }
 

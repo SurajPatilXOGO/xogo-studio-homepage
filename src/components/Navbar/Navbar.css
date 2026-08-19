@@ -54,7 +54,7 @@
 }
 
 .navbar__links a:hover {
-    color: #368ccd; /* Updated to custom color */
+    color: #1F7BF5; /* Updated to custom color */
     text-shadow: 0 0 10px rgba(54, 140, 205, 0.7); /* Glowing hover effect */
 }
 
@@ -83,7 +83,7 @@
 
 /* Hamburger Animation & Accent Color */
 .navbar__hamburger.is-active .bar {
-    background-color: #368ccd;
+    background-color: #1F7BF5;
 }
 
 .navbar__hamburger.is-active .bar:nth-child(1) {

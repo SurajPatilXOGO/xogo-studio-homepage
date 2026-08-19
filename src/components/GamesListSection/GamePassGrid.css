@@ -3,7 +3,7 @@
     --g-bg: #030712;
     --g-card-bg: #000000;
     --g-stub-bg: #000000; /* Flat black background */
-    --g-accent: #368ccd; 
+    --g-accent: #1F7BF5; 
     --g-accent-glow: rgba(54, 140, 205, 0.4);
     --g-text-main: #f8fafc;
     --g-text-muted: #94a3b8;
@@ -36,7 +36,7 @@
     font-weight: 900;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: #368ccd;
+    color: #1F7BF5;
     text-shadow: 0 0 10px rgba(54, 140, 205, 0.7);
     margin: 0;
     border: none;
@@ -106,7 +106,7 @@
     font-weight: 800;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    background-color: #368ccd;
+    background-color: #1F7BF5;
     color: #000000;
     padding: 6px 16px;
     border-radius: 9999px; /* Complete pill/capsule rounding */
@@ -171,9 +171,9 @@
   }
 
   .btn-platform:hover {
-    background: #368ccd;
+    background: #1F7BF5;
     color: #000;
-    border-color: #368ccd;
+    border-color: #1F7BF5;
     box-shadow: 0 0 15px rgba(54, 140, 205, 0.6);
   }
 
@@ -251,7 +251,7 @@
   .t-stub-code {
     font-family: monospace;
     font-size: 0.65rem;
-    color: #368ccd;
+    color: #1F7BF5;
     letter-spacing: 0.1em;
     font-weight: 700;
   }
@@ -273,10 +273,10 @@
     display: inline-block;
     width: 8px;
     height: 8px;
-    background-color: #368ccd;
+    background-color: #1F7BF5;
     border-radius: 50%;
     margin-right: 6px;
-    box-shadow: 0 0 8px #368ccd;
+    box-shadow: 0 0 8px #1F7BF5;
   }
 
   .t-status-text {
