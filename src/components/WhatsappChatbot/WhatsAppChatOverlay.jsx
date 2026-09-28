@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import './whatsapp-chat-overlay.css';
 
-const WHATSAPP_NUMBER = '919998566337';
+const WHATSAPP_NUMBER = '919081364639';
 const COMMUNITY_URL = 'https://chat.whatsapp.com/YOUR_COMMUNITY_INVITE_LINK';
 
 const faqItems = [
